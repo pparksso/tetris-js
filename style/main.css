@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'powerPixel';
+  src: url('./PowerPixel7-Jy0E.ttf');
+}
+body {
+  font-family: 'powerPixel';
+  width: 100vw;
+  height: 100vh;
+}
+.tetris-box {
+  width: 50%;
+  height: 600px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 100px;
+}
+.canvas-box {
+  position: relative;
+}
+#blockCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+#stackCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.score-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+.score-box h1 {
+  font-size: 80px;
+  margin-bottom: 30px;
+}
+.score-box p {
+  font-size: 50px;
+}
+.score-box p span {
+  color: #f00;
+}
+.score-box button {
+  border: 1px solid #232323;
+  font-family: 'powerPixel';
+  padding: 10px 30px;
+  font-size: 30px;
+}
+
+.playBtn {
+  background-color: #5cad51;
+}
+.stopBtn {
+  background-color: #232323;
+  color: #fff;
+}
