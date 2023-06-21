@@ -11,18 +11,19 @@
     <div class="tetris-box">
       <div class="canvas-box">
         <canvas id="boardCanvas" style="border: 2px solid #000;"></canvas>
-        <canvas id="blockCanvas"></canvas>
-        <canvas id="stackCanvas"></canvas>
+        <canvas id="blockCanvas" style="border: 2px solid #000;"></canvas>
+        <canvas id="stackCanvas" style="border: 2px solid #000;"></canvas>
       </div>
       <div class="score-box">
         <div class="score-box-top">
           <h1>TETRIS</h1>
           <p>SCORE: <span class="score">0</span></p>
         </div>
-        <button class="playBtn">PLAY</button>
-        <!-- <button class="stopBtn">STOP</button> -->
+        <button class="playBtn btn on">PLAY</button>
+        <button class="stopBtn btn">STOP</button>
       </div>
     </div>
     <script type="module" src="./main.js"></script>
+    <script type="module" src="./block.js"></script>
   </body>
 </html>

@@ -1,7 +1,6 @@
 const boardCanvas = document.getElementById('boardCanvas');
 const boardCtx = boardCanvas.getContext('2d');
 
-console.log(boardCtx);
 const boardCanvasWidth = 300;
 const boardCanvasHeight = 600;
 const boardCanvasX = 0;
@@ -27,4 +26,5 @@ function drawBoard() {
     }
   }
 }
+
 drawBoard();

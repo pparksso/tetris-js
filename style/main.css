@@ -2,6 +2,9 @@
   font-family: 'powerPixel';
   src: url('./PowerPixel7-Jy0E.ttf');
 }
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: 'powerPixel';
   width: 100vw;
@@ -51,6 +54,7 @@ body {
   font-family: 'powerPixel';
   padding: 10px 30px;
   font-size: 30px;
+  cursor: pointer;
 }
 
 .playBtn {
@@ -59,4 +63,10 @@ body {
 .stopBtn {
   background-color: #232323;
   color: #fff;
+}
+.btn {
+  display: none;
+}
+.btn.on {
+  display: block;
 }
