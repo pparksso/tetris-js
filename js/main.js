@@ -1,5 +1,6 @@
 let xPosition = 90;
 let yPosition = 0;
+let interval;
 const stackedBlocks = [];
 
 // 보드 그리기
@@ -18,8 +19,6 @@ function drawBoard() {
   }
 }
 
-drawBoard();
-
 let randomBlockIdx = Math.floor(Math.random() * (blocks.length - 1));
 let block = blocks[randomBlockIdx];
 let color = blockColors[randomBlockIdx];
@@ -28,6 +27,10 @@ startBtn.addEventListener('click', () => {
   startBtn.classList.remove('on');
   stopBtn.classList.add('on');
   drawBlock(xPosition, yPosition, block, color);
+  interval = setInterval(() => {
+    clearBlock();
+    moveOneClickDown();
+  }, 1500);
 });
 
 stopBtn.addEventListener('click', () => {
@@ -36,7 +39,7 @@ stopBtn.addEventListener('click', () => {
   xPosition = 90;
   yPosition = 0;
   drawBoard();
-  clearInterval(downBlock);
+  clearInterval(interval);
 });
 
 window.addEventListener('keydown', (e) => {
@@ -68,8 +71,14 @@ window.addEventListener('keydown', (e) => {
     stackedBlocks.push({ x: xPosition, y: yPosition, block: block, color: color });
     newBlock();
     clearBlock();
+    clearInterval(interval);
     drawStackBlock();
     drawBlock(xPosition, yPosition, block, color);
+    interval = setInterval(() => {
+      clearBlock();
+      drawStackBlock();
+      moveOneClickDown();
+    }, 1500);
   } else if (e.code === 'ArrowDown') {
     if (yPosition + block.length * 30 === boardCanvasHeight) {
       stackedBlocks.push({ x: xPosition, y: yPosition, block: block, color: color });
@@ -84,3 +93,5 @@ window.addEventListener('keydown', (e) => {
     moveOneClickDown();
   }
 });
+
+drawBoard();
