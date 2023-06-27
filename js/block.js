@@ -70,7 +70,23 @@ function newBlock() {
 // 쌓인 블록 그리기
 function drawStackBlock() {
   stackedBlocks.forEach((stackBlock, idx) => {
-    console.log(stackBlock);
     drawBlock(stackBlock.x, stackBlock.y, stackBlock.block, stackBlock.color);
   });
 }
+
+// 얼마나 채워지고 있는지 체크하는 함수
+function checkFill(x, block) {
+  const xIdx = x / 30;
+
+  block.forEach((row, rowIdx) => {
+    row.forEach((col, colIdx) => {
+      const xPos = xIdx + colIdx;
+      if (col === 1) {
+        fillBoard[xPos].y -= 30;
+      }
+    });
+  });
+}
+
+// y부분이 충돌인지 아닌지 체크하는 함수
+function crashY(x, y, block) {}

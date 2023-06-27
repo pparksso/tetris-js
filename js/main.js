@@ -2,6 +2,7 @@ let xPosition = 90;
 let yPosition = 0;
 let interval;
 const stackedBlocks = [];
+const fillBoard = Array.from({ length: 10 }, (_, idx) => ({ x: idx + 1, y: 600 }));
 
 // 보드 그리기
 function drawBoard() {
@@ -68,7 +69,9 @@ window.addEventListener('keydown', (e) => {
     drawBlock(xPosition, yPosition, block, color);
   } else if (e.code === 'Space') {
     moveDown();
-    stackedBlocks.push({ x: xPosition, y: yPosition, block: block, color: color });
+    checkFill(xPosition, block);
+    stackedBlocks.push({ x: xPosition, y: fillBoard[xPosition / 30].y, block: block, color: color });
+    xPosition = 90;
     newBlock();
     clearBlock();
     clearInterval(interval);
@@ -81,7 +84,9 @@ window.addEventListener('keydown', (e) => {
     }, 1500);
   } else if (e.code === 'ArrowDown') {
     if (yPosition + block.length * 30 === boardCanvasHeight) {
-      stackedBlocks.push({ x: xPosition, y: yPosition, block: block, color: color });
+      checkFill(xPosition, block);
+      stackedBlocks.push({ x: xPosition, y: fillBoard[xPosition / 30].y, block: block, color: color });
+      xPosition = 90;
       newBlock();
       clearBlock();
       drawStackBlock();
