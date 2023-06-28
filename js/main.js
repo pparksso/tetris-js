@@ -31,6 +31,7 @@ startBtn.addEventListener('click', () => {
   interval = setInterval(() => {
     clearBlock();
     moveOneClickDown();
+    crashY(xPosition, yPosition, block);
   }, 1500);
 });
 
@@ -51,6 +52,7 @@ window.addEventListener('keydown', (e) => {
     clearBlock();
     drawStackBlock();
     moveLeft();
+    crashY(xPosition, yPosition, block);
   } else if (e.code === 'ArrowRight') {
     if (xPosition + block[0].length * 30 >= boardCanvasWidth) {
       return false;
@@ -58,6 +60,7 @@ window.addEventListener('keydown', (e) => {
     clearBlock();
     drawStackBlock();
     moveRight();
+    crashY(xPosition, yPosition, block);
   } else if (e.code === 'ArrowUp') {
     const rotatedBlock = rotateBlock(block);
     if (xPosition + rotatedBlock[0].length * 30 >= boardCanvasWidth) {
@@ -67,6 +70,7 @@ window.addEventListener('keydown', (e) => {
     drawStackBlock();
     block = rotatedBlock;
     drawBlock(xPosition, yPosition, block, color);
+    crashY(xPosition, yPosition, block);
   } else if (e.code === 'Space') {
     moveDown();
     checkFill(xPosition, block);
@@ -81,6 +85,7 @@ window.addEventListener('keydown', (e) => {
       clearBlock();
       drawStackBlock();
       moveOneClickDown();
+      crashY(xPosition, yPosition, block);
     }, 1500);
   } else if (e.code === 'ArrowDown') {
     if (yPosition + block.length * 30 === boardCanvasHeight) {

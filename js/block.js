@@ -89,4 +89,19 @@ function checkFill(x, block) {
 }
 
 // y부분이 충돌인지 아닌지 체크하는 함수
-function crashY(x, y, block) {}
+function crashY(x, y, block) {
+  const xIdx = x / 30;
+  block.forEach((row, rowIdx) => {
+    row.forEach((col, colIdx) => {
+      const xPos = xIdx + colIdx;
+      if (col === 1) {
+        // 블록의 세로 길이를 파악해야됨...
+        const yPos = y + 30;
+        if (fillBoard[xPos].y <= yPos) {
+          console.log(fillBoard[xPos].y, yPos);
+          return false;
+        }
+      }
+    });
+  });
+}
