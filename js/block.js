@@ -93,15 +93,7 @@ function crashY(x, y, block) {
   const xIdx = x / 30;
   block.forEach((row, rowIdx) => {
     row.forEach((col, colIdx) => {
-      const xPos = xIdx + colIdx;
-      if (col === 1) {
-        // 블록의 세로 길이를 파악해야됨...
-        const yPos = y + 30;
-        if (fillBoard[xPos].y <= yPos) {
-          console.log(fillBoard[xPos].y, yPos);
-          return false;
-        }
-      }
+      // 블록의 모든 칸의 셀 위치 계산
     });
   });
 }
